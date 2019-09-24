@@ -1,0 +1,185 @@
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+       -o-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.3);
+}
+
+
+.modal * {
+  font-size:12px;
+  color:#666;
+}
+.modal-base{
+  /* position:absolute; */
+  max-width:100%;
+  width:300px;
+  max-height:100%;
+  background-color:white;
+  border-radius:4px;
+  padding:10px;
+  overflow-y:auto;
+}
+
+
+.modal-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+.modal-close > .modal-close-icon{
+  position:relative;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  cursor:pointer;
+}
+.modal-close > .modal-close-icon:empty:hover{
+  opacity:0.5;
+}
+.modal-close > .modal-close-icon:empty:before{
+  content:"";
+  position:absolute;
+  top:calc(50% - 1px);
+  left:10%;
+  width:80%;
+  height:1px;
+  border-bottom:1px solid #666;
+  transform:rotate(45deg);
+  transform-origin:center;
+}
+.modal-close > .modal-close-icon:empty:after{
+  content:"";
+  position:absolute;
+  top:calc(50% - 1px);
+  left:10%;
+  width:80%;
+  height:1px;
+  border-bottom:1px solid #666;
+  transform:rotate(-45deg);
+  transform-origin:center;
+}
+
+.modal-title{
+  width:100%;
+  font-size:14px;
+  text-align:center;
+  min-height:20px;
+}
+.modal-message{
+  width:100%;
+  margin:0;
+  padding:0;
+  display:table;
+}
+
+.modal-message-contents{
+  width:100%;
+  min-height:100px;
+  max-height:300px;
+  font-size:12px;
+  padding:10px;
+  display:table-cell;
+  vertical-align:middle;
+}
+.modal-button-area{
+  text-align:center;
+}
+button.modal-button{
+  display:inline;
+  min-width:80px;
+  height:30px;
+  font-size:12px;
+  border:0;
+  margin:8px;
+  padding:0 8px;
+  border-radius:4px;
+  /* box-shadow:0px 0px 4px rgba(0,0,0,0.3); */
+  cursor:pointer;
+  outline:none;
+}
+button.modal-button:hover{
+  opacity:0.5;
+}
+
+
+/* Animation */
+.modal{
+  opacity:0;
+}
+.modal,
+.modal .modal-base{
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.modal[data-view="1"]{
+  /* animation: anim-modal-view 0.3s linear forwards; */
+  animation-name: anim-modal-view;
+  animation-timing-function: linear;
+}
+@keyframes anim-modal-view{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+.modal[data-view="1"] .modal-base{
+  /* animation: anim-modal-slidein 0.3s ease-out forwards; */
+  animation-name: anim-modal-slidein;
+  animation-timing-function: ease-out;
+}
+@keyframes anim-modal-slidein{
+  0%{
+    transform:translateY(-150px);
+  }
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+.modal[data-view="0"]{
+  /* nimation: anim-modal-close 0.3s linear forwards; */
+  animation-name: anim-modal-close;
+  animation-timing-function: linear;
+}
+@keyframes anim-modal-close{
+  0%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+  }
+}
+.modal[data-view="0"] .modal-base{
+  /* animation: anim-modal-slideout 0.3s ease-out forwards; */
+  animation-name: anim-modal-slideout;
+  animation-timing-function: ease-out;
+}
+@keyframes anim-modal-slideout{
+  0%{
+    transform:translateY(0px);
+  }
+  100%{
+    transform:translateY(-150px);
+  }
+}
+
+
+
+

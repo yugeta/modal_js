@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Modal</title>
+  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel='stylesheet' href='modal.css'>
+  <script type='text/javascript' src='ajax.js'></script>
+  <script type='text/javascript' src='modal.js'></script>
+  
+</head>
+
+<body>
+  <h1>Modal</h1>
+
+  <a class="modal-switch" href="#" data-target-selector="#modal">Modal-view</a>
+
+  <div id="modal">
+    <div class="modal-window">
+      Modal-window-sample<br>
+    </div>
+  </div>
+
+  <script>
+    var modal_switch = document.querySelector(".modal-switch");
+    modal_switch.onclick = function(){
+      new $$modal({
+        // 表示サイズ
+        size    : {
+          width : "500px",
+          height: "auto"
+        },
+        // 表示位置
+        position : {
+          vertical : "top",     // 縦 [top , *center(*画像などがある場合はサイズ指定してから使用すること) , bottom]
+          horizon  : "center",  // 横 [left , *center , right]
+          margin   : ["10px","10px","10px","10px"]   // [上、右、下、左]
+        },
+        // 閉じるボタン
+        close   : {
+          html  : "",
+          size  : 20,
+          click : function(){}
+        },
+        // [上段] タイトル表示文字列
+        title   : "Title",
+        // [中断] メッセージ表示スタイル
+        message : {
+          html   : "Message",
+          height : "auto",
+          align  : "center"
+        },
+        // [下段] ボタン
+        button  : [
+          {
+            mode:"close",
+            text:"Click",
+            click : function(){}
+          }
+        ],
+        // クリック挙動 [ "close" , "none" ]
+        bgClick : "close"
+      });
+    };
+    
+  </script>
+
+</body>
+</html>
