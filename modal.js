@@ -82,7 +82,10 @@
       }
     ],
     // クリック挙動 [ "close" , "none" ]
-    bgClick : "close"
+    bgClick : "close",
+
+    // modal表示後の実行function
+    loaded : function(){console.log("loaded!!!");}
   };
 
 
@@ -102,10 +105,14 @@
 
   $$.prototype.reflectOptions = function(options){
     if(!options){return;}
-    this.options = __options;
-    for(var i in options){
-      this.options[i] = options[i];
+    var tmp = {};
+    for(var i in __options){
+      tmp[i] = __options[i];
     }
+    for(var i in options){
+      tmp[i] = options[i];
+    }
+    this.options = tmp;
   };
 
   $$.prototype.view_template = function(template){
