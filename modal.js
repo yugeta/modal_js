@@ -85,7 +85,7 @@
     bgClick : "close",
 
     // modal表示後の実行function
-    loaded : function(){console.log("loaded!!!");}
+    loaded : function(){}
   };
 
 
