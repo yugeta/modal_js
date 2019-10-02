@@ -173,6 +173,9 @@
 
     // animation
     bg.setAttribute("data-view","1");
+
+    // loaded-function
+    this.options.loaded();
   };
 
   $$.prototype.setPosition = function(base){
