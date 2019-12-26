@@ -175,7 +175,7 @@
     bg.setAttribute("data-view","1");
 
     // loaded-function
-    this.options.loaded();
+    this.options.loaded(this);
   };
 
   $$.prototype.setPosition = function(base){
