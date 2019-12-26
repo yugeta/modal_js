@@ -11,6 +11,8 @@ Date   : 2019.06.19
 WEBページにmodalダイアログの表示機能を追加します。
 javascriptでのalertダイアログではデザインなどができないため、独自にダイアログ表示をしたい場合に便利に行うことができます。
 
+# Blog
+http://wordpress.ideacompo.com/?p=14234
 
 
 # Sample
