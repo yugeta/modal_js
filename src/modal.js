@@ -265,23 +265,34 @@
   css.href = model_css +"?"+ query.join("");
   base.appendChild(css);
 
-
-  // template読み込み
-  var __modal_template = "";
-  var modal_template_file = modal_pathinfo.dir + modal_pathinfo.file.replace(".js",".html");
-  new $$ajax({
-    url : modal_template_file,
-    method : "get",
-    query : {
-      exit : true
-    },
-    onSuccess : function(res){
-      __modal_template = res;
+  // ajax読み込み（事前に読み込まれていない場合のみ）
+  if(typeof $$ajax === "undefined"){
+    var s = document.createElement("script");
+    s.src = modal_pathinfo.dir + "ajax.js";
+    s.onclick = function(){
+      init();
     }
-  });
+    document.getElementsByTagName("head")[0].appendChild(s);
+  }
+  else{
+    init();
+  }
 
+  function init(){
+    // template読み込み
+    var __modal_template = "";
+    var modal_template_file = modal_pathinfo.dir + modal_pathinfo.file.replace(".js",".html");
+    new $$ajax({
+      url : modal_template_file,
+      method : "get",
+      query : {
+        exit : true
+      },
+      onSuccess : function(res){
+        __modal_template = res;
+      }
+    });
+    return $$;
+  }
 
-
-
-  return $$;
 })();
